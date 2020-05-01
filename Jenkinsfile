@@ -11,7 +11,7 @@ pipeline {
 
     environment {
         // This can be nexus3 or nexus2
-        NEXUS_VERSION = "nexus"
+        NEXUS_VERSION = "NEXUS3"
         // This can be http or https
         NEXUS_PROTOCOL = "http"
         // Where your Nexus is running. 'nexus-3' is defined in the docker-compose file
