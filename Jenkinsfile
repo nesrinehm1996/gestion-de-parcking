@@ -6,12 +6,12 @@ pipeline {
 
     tools {
         // Note: This should match with the tool name configured in your jenkins instance (JENKINS_URL/configureTools/)
-        maven "apache-maven-3.6.3" 
+        maven "apache-maven-3" 
     }
 
     environment {
         // This can be nexus3 or nexus2
-        NEXUS_VERSION = "nexus3"
+        NEXUS_VERSION = "nexus"
         // This can be http or https
         NEXUS_PROTOCOL = "http"
         // Where your Nexus is running. 'nexus-3' is defined in the docker-compose file
@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                     // Let's clone the source
-                    git 'https://github.com/Raouagarati101/gestion-de-parkings.git';
+                    git 'https://github.com/nesrinehm1996/gestion-de-parcking.git';
                 }
             }
         }
@@ -88,17 +88,6 @@ pipeline {
             }
       }
 
-stage("Building SONAR") {
-    steps {
-        script {
-           def sonarUrl = 'sonar.host.url=http://127.0.0.1:9000'
-         def mvnHome =  tool name: 'apache-maven-3.6.3', type: 'maven'
-        withSonarQubeEnv('sonarqube') { 
-          sh "mvn sonar:sonar"
-  
-        }
-          }
-    }
-}
+
     }
 }   
